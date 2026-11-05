@@ -1,0 +1,22 @@
+[project]
+name = "dispute-agent"
+version = "0.1.0"
+description = "Resolves e-wallet payment disputes using records, written rules and safety checks"
+requires-python = ">=3.10"
+dependencies = ["anthropic>=0.40", "pydantic>=2.5"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+dispute-agent = "dispute_agent.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["dispute_agent*"]
+
+[tool.setuptools.package-data]
+dispute_agent = ["prompts/*.md"]
